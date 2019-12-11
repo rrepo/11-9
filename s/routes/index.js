@@ -5,7 +5,7 @@ const user = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' }); 
+  res.render('index', { title: 'Express',d:user.findAll({where:{user_id : 1},order: [['"created_at"', 'DESC']]})}); 
 
   var userdate = user.findAll({where:{user_id : 1},order: [['"created_at"', 'DESC']]});
   console.log(userdate);
